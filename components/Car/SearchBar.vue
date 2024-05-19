@@ -1,5 +1,18 @@
 <script setup>
+const city = ref("")
+const cityError = ref(false)
 
+
+const handleSearch = ()=> {
+  cityError.value = false
+  if(!city.value){
+    cityError.value = true
+    console.log(cityError.value)
+    return
+  }
+  console.log(city.value)
+  navigateTo(`/city/${city.value}/car`)
+}
 </script>
 
 <template>
@@ -10,9 +23,11 @@
     <input
         type="text"
         class="py-3 px-5 w-full text-2xl rounded-full focus:outline-none"
+        :class="cityError? 'border border-red-500 placeholder-red-500' : '' "
+        v-model="city"
         placeholder="Search by city..."
     />
-    <button class="bg-sky-500 px-10 text-white">Search</button>
+    <button class="bg-sky-500 px-10 text-white" @click="handleSearch">Search</button>
   </div>
   <!-- HOME SEARCH BAR -->
 </template>

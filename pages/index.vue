@@ -1,10 +1,15 @@
-<script setup lang="ts">
+<script setup >
+useHead({
+  title: 'CarTrader'
+})
 
 </script>
 
 <template>
-  <NavBar/>
-  <CarHero/>
+  <div>
+    <CarHero/>
+  </div>
+
 </template>
 
 <style scoped>
